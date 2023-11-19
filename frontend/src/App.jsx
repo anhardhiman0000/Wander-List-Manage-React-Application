@@ -43,9 +43,7 @@ function App() {
   }
 
   //move selected image up [only update the state]
-  // function handleSelectPlace(selectedPlace) {
   async function handleSelectPlace(selectedPlace) {
-    // await updateUserPlaces([selectedPlace, ...userPlaces]);
 
     setUserPlaces((prevPickedPlaces) => {
       if (!prevPickedPlaces) {
@@ -58,8 +56,6 @@ function App() {
     });
 
     //code of send req to backend to know my updated req. So in refresh do not get unupdate.
-    // await updateUserPlaces([selectedPlace, ...userPlaces]);
-
     try {
       await updateUserPlaces([selectedPlace, ...userPlaces]);
     } catch (error) {
@@ -78,10 +74,6 @@ function App() {
         )
       );
 
-      //state update
-      // await updateUserPlaces(
-      //   userPlaces.filter((place) => place.id !== selectedPlace.current.id)
-      // );
       try {
         await updateUserPlaces(
           userPlaces.filter((place) => place.id !== selectedPlace.current.id)
@@ -94,7 +86,6 @@ function App() {
       }
 
       setModalIsOpen(false);
-      // }, []);
     },
     [userPlaces]
   );
